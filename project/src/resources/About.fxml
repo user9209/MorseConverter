@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!--
+  ~     Copyright (C) 2017
+  ~     David Alt <david_leonard.alt@stud.tu-darmstadt.de>
+  ~     Fabio d'Aquino Hilt <fabio.daquinohilt@stud.tu-darmstadt.de>
+  ~     Georg Schmidt <gs-develop@gs-sys.de>
+  ~
+  ~     This program is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~     This program is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ControllerAbout">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#backToMain" text="Close" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+              <tabs>
+                <Tab text="Authors">
+                  <content>
+                    <AnchorPane fx:id="a_Author" minHeight="0.0" minWidth="0.0">
+                           <children>
+                              <TextArea fx:id="ta_Author" editable="false" layoutY="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="311.0" prefWidth="600.0" text="Authors:&#10;David Alt &lt;david_leonard.alt@stud.tu-darmstadt.de&gt;&#10;Fabio d'Aquino Hilt &lt;fabio.daquinohilt@stud.tu-darmstadt.de&gt;&#10;Georg Schmidt &lt;gs-develop@gs-sys.de&gt;&#10;" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextArea>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                     <tooltip>
+                        <Tooltip text="Showing the Authors" />
+                     </tooltip>
+                </Tab>
+                  <Tab text="License">
+                    <content>
+                      <AnchorPane fx:id="a_Licence" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextArea fx:id="ta_Licence" editable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="311.0" prefWidth="600.0" text="License: GPL 3:&#10;&#10;    Copyright (C) 2017 &#10;    This program is free software: you can redistribute it and/or modify&#10;    it under the terms of the GNU General Public License as published by&#10;    the Free Software Foundation, either version 3 of the License, or&#10;    (at your option) any later version.&#10;    This program is distributed in the hope that it will be useful,&#10;    but WITHOUT ANY WARRANTY; without even the implied warranty of&#10;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#10;    GNU General Public License for more details.&#10;    You should have received a copy of the GNU General Public License&#10;    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;." wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextArea>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                <Tab text="Website">
+                  <content>
+                    <AnchorPane fx:id="a_Website" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextArea fx:id="ta_Website" editable="false" prefHeight="311.0" prefWidth="600.0" text="You can get a copy of this software under the homepages:&#10;&#10;https://bitbucket.org/user876/morseconverter&#10;" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextArea>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Help">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextArea prefHeight="300.0" prefWidth="600.0" text="Strg + M : Switch morse output format&#10;Strg + S : Save output to a file&#10;Strg + O : Open a file and load it to the text input&#10;&#10;Dit-Symbols:   &quot;.&quot; or &quot;·&quot;&#10;Dot-Symbols: &quot;-&quot; , &quot;_&quot; or &quot;−&quot;&#10;&#10;Sound and Light only as output." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextArea>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+            <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="0.0" VBox.vgrow="NEVER">
+               <children>
+                  <Region maxHeight="30.0" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="BackToMainButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" minHeight="30.0" mnemonicParsing="false" onAction="#backToMain" text="Back">
+                     <opaqueInsets>
+                        <Insets top="20.0" />
+                     </opaqueInsets>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Closing this window" />
+                     </tooltip>
+                  </Button>
+                  <Region maxHeight="30.0" maxWidth="1.7976931348623157E308" minHeight="30.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

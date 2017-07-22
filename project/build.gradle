@@ -1,0 +1,59 @@
+/* use javafx plugin */
+apply from: 'javafx.plugin'
+
+// so java code is compiled as UTF-8 (is not standard in Windows)
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+// tell gradle where main and test files are
+sourceSets {
+    // default paths are: src/main/java and src/test/java
+    // here they are changed to: src/main and src/test
+    main {
+        java {
+            srcDirs = ['src']
+        }
+        resources {
+            srcDirs = ['src/resources', 'src/assets']
+        }
+    }
+}
+
+test {
+    // pass headless flag on if given to gradle (for server testing)
+    // see: http://www.jroller.com/aalmiray/entry/running_testfx_tests_in_headless
+    if (project.hasProperty("runHeadless")) {
+        jvmArgs "-Dheadless=true"
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testRuntime 'org.jfxtras:openjfx-monocle:1.8.0_20' // to run TestFX tests headless (without GUI), e.g. on server
+}
+
+jar {
+    manifest {
+        attributes('JavaFX-Fallback-Class': 'gui.FallBack')
+    }
+}
+
+//javafx {
+//    // jnlp icons, legacy
+//    icon {
+//        href = 'src/main/resources/javafx-icon.png'
+//        kind = 'splash'
+//        width = 128
+//        height = 128
+//    }
+//    icon {
+//        href = 'shortcut-32@2x.png'
+//        kind = 'selected'
+//        width = 16
+//        height = 16
+//        scale = 1
+//    }
+//}

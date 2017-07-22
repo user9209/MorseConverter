@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<!--
+  ~     Copyright (C) 2017
+  ~     David Alt <david_leonard.alt@stud.tu-darmstadt.de>
+  ~     Fabio d'Aquino Hilt <fabio.daquinohilt@stud.tu-darmstadt.de>
+  ~     Georg Schmidt <gs-develop@gs-sys.de>
+  ~
+  ~     This program is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~     This program is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ControllerMain">
+   <center>
+      <AnchorPane BorderPane.alignment="TOP_CENTER">
+         <children>
+            <VBox>
+               <children>
+                  <HBox spacing="5.0">
+                     <children>
+                        <VBox fx:id="inputVBox" spacing="5.0">
+                           <children>
+                              <HBox spacing="5.0">
+                                 <children>
+                                    <ComboBox fx:id="inputComboBox" maxHeight="-Infinity" maxWidth="200.0" minHeight="-Infinity" minWidth="150.0" onAction="#onInputMethodComboBoxClicked" onInputMethodTextChanged="#onInputTypeChanged" prefHeight="25.0" prefWidth="200.0">
+                                       <tooltip>
+                                          <Tooltip text="Choose Input Type (Text/Morse/Detect Automaticly)" />
+                                       </tooltip>
+                                    </ComboBox>
+                                    <Region maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefHeight="25.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="swapButton" maxHeight="-Infinity" maxWidth="40.0" minHeight="-Infinity" minWidth="40.0" mnemonicParsing="false" onAction="#onSwapButtonClicked" prefHeight="25.0" prefWidth="40.0" text="&lt;&gt;&#10;">
+                                       <tooltip>
+                                          <Tooltip text="Swap window content" />
+                                       </tooltip>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <StackPane>
+                                 <children>
+                                    <TextArea fx:id="inputTextArea" minHeight="70.0" minWidth="250.0" onKeyReleased="#onInputTextChanged" prefHeight="150.0" prefWidth="400.0" text="" wrapText="true" StackPane.alignment="CENTER_LEFT">
+                                       <tooltip>
+                                          <Tooltip text="Type Input here" />
+                                       </tooltip>
+                                    </TextArea>
+                                 </children>
+                              </StackPane>
+                              <StackPane>
+                                 <children>
+                                    <AnchorPane prefHeight="50.0">
+                                       <children>
+                                          <HBox fillHeight="false" spacing="5.0">
+                                             <children>
+                                                <Button fx:id="dotInputButton" mnemonicParsing="false" onAction="#onDotButtonClicked" text=".">
+                                                   <tooltip>
+                                                      <Tooltip text="Input Morse Dot" />
+                                                   </tooltip>
+                                                </Button>
+                                                <Button fx:id="dashInputButton" mnemonicParsing="false" onAction="#onDashButtonClicked" text="–">
+                                                   <tooltip>
+                                                      <Tooltip text="Input Morse Dash" />
+                                                   </tooltip>
+                                                </Button>
+                                                <Button fx:id="spaceInputButton" mnemonicParsing="false" onAction="#onSpaceButtonClicked" text="Space">
+                                                   <tooltip>
+                                                      <Tooltip text="Input Morse Space" />
+                                                   </tooltip>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="outputVBox" spacing="5.0">
+                           <children>
+                              <HBox fillHeight="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="5.0">
+                                 <children>
+                                    <ComboBox fx:id="outputComboBox" maxHeight="-Infinity" maxWidth="200.0" minHeight="-Infinity" minWidth="150.0" onAction="#onOutputMethodComboBoxClicked" onInputMethodTextChanged="#onOutputTypeChanged" prefHeight="25.0" prefWidth="200.0">
+                                       <tooltip>
+                                          <Tooltip text="Select Output Type (Morse/Text)" />
+                                       </tooltip>
+                                    </ComboBox>
+                                    <Region maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="0.0" prefHeight="25.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="convertButton" maxHeight="-Infinity" maxWidth="80.0" minHeight="-Infinity" minWidth="80.0" mnemonicParsing="false" onAction="#onTranslateButtonClicked" prefHeight="25.0" prefWidth="80.0" text="Translate">
+                                       <tooltip>
+                                          <Tooltip text="Translate given Input to given Output Format" />
+                                       </tooltip>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <StackPane>
+                                 <children>
+                                    <TextArea fx:id="outputTextArea" editable="false" minHeight="70.0" minWidth="250.0" prefHeight="150.0" prefWidth="400.0" text="" wrapText="true">
+                                       <tooltip>
+                                          <Tooltip text="Output is Displayed here" />
+                                       </tooltip>
+                                    </TextArea>
+                                 </children>
+                              </StackPane>
+                              <StackPane>
+                                 <children>
+                                    <AnchorPane pickOnBounds="false">
+                                       <children>
+                                          <HBox spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0">
+                                             <children>
+                                                <Button fx:id="playSoundButton" mnemonicParsing="false" onAction="#onSoundButtonClicked" text="Sound">
+                                                   <tooltip>
+                                                      <Tooltip text="Echo Sound corresponding to Morsecode" />
+                                                   </tooltip>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="200.0">
+                     <children>
+                        <AnchorPane fx:id="morseTreeImageAnchorPane">
+                           <children>
+                              <ImageView fx:id="morseTreeImageView" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <image>
+                                    <Image url="@pic/morse_graph.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="40.0" right="5.0" />
+                           </HBox.margin>
+                        </AnchorPane>
+                        <AnchorPane prefWidth="100.0" />
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0">
+                                 <children>
+                                    <ImageView fx:id="light" fitHeight="183.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <image>
+                                          <Image url="@pic/gluehbirne.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </AnchorPane>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <AnchorPane prefWidth="200.0" />
+                                    <Button fx:id="runLight" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onRunLightClicked" text="Light">
+                                       <HBox.margin>
+                                          <Insets bottom="5.0" top="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <AnchorPane prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets right="20.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+   <bottom>
+      <AnchorPane BorderPane.alignment="CENTER" />
+   </bottom>
+   <left>
+      <AnchorPane BorderPane.alignment="CENTER" />
+   </left>
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu fx:id="fileMenu" mnemonicParsing="false" onAction="#onFileMenuItemClicked" text="File">
+                  <items>
+                    <MenuItem fx:id="loadInputMenuItem" mnemonicParsing="false" onAction="#onLoadInputMenuItemClicked" text="Load input from File" />
+                        <MenuItem fx:id="saveOutputMenuItem" mnemonicParsing="false" onAction="#onSaveOutputMenuItemClicked" text="Save output as..." />
+                        <MenuItem fx:id="quitMenuItem" mnemonicParsing="false" onAction="#onQuitMenuItemClicked" text="Quit" />
+                  </items>
+                </Menu>
+                <Menu fx:id="helpMenu" mnemonicParsing="false" onAction="#onHelpMenuItemClicked" text="Help">
+                  <items>
+                    <MenuItem fx:id="aboutMenuItem" mnemonicParsing="false" onAction="#onAboutMenuItemClicked" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <ToolBar>
+              <items>
+                  <Label text="Volume" />
+                  <Slider fx:id="volumeSlider" blockIncrement="0.1" max="1.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="21.0" prefWidth="92.0" value="0.5">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                     <tooltip>
+                        <Tooltip text="Change volume of sound" />
+                     </tooltip>
+                  </Slider>
+                  <Separator orientation="VERTICAL" />
+                  <Label text="Pitch" />
+                  <ComboBox fx:id="pitchComboBox" editable="true" prefWidth="70.0">
+                     <tooltip>
+                        <Tooltip text="Change pitch of sound" />
+                     </tooltip>
+                  </ComboBox>
+                  <Label text="Hz" />
+                  <Separator orientation="VERTICAL" />
+                  <Label text="Dit-length" />
+                  <ComboBox fx:id="ditLengthComboBox" editable="true" prefWidth="70.0">
+                     <tooltip>
+                        <Tooltip text="Change Dit-length of sound and light" />
+                     </tooltip>
+                  </ComboBox>
+                  <Label text="ms" />
+                  <Separator orientation="VERTICAL" />
+              </items>
+            </ToolBar>
+         </children>
+      </VBox>
+   </top>
+</BorderPane>
