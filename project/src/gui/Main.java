@@ -44,7 +44,12 @@ public class Main extends Application {
         switch (args.length)
         {
             case 0:
-                launch(args);
+                try {
+                    Main.class.getClassLoader().loadClass("javafx.application.Application");
+                    launch(args);
+                } catch (ClassNotFoundException e) {
+                    FallBack.main(args);
+                }
                 break;
             case 1:
                 String out  = null;

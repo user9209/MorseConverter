@@ -46,7 +46,7 @@ public class FallBack extends JFrame {
         JTextArea ta_message = new JTextArea("");
         JScrollPane tasp_message = new JScrollPane(ta_message);
         tasp_message.setBounds(10, 10, 280, 200);
-        ta_message.setText("# Requirements #\n\nSorry, this software is designed to use Java FX.\n\nPlease check that you use a current version\nof JRE 8+ and JavaFX.\n\nOn Linux you can install openjfx for\nJavaFX support.\n\nOn Ubuntu or Debian you can use\n\"sudo apt-get install openjfx\"");
+        ta_message.setText("# Requirements #\n\nSorry, this software is designed to use Java FX.\n\nPlease check that you use a current version\nof JRE 8+ and JavaFX.\n\nOn Linux you can install oracle java or openjfx for\nJavaFX support.\n\nOn Ubuntu or Debian you can use\n\"sudo apt-get install openjfx\".");
         ta_message.setEditable(false);
         ta_message.setLineWrap(true);
         cp.add(tasp_message);
